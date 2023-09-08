@@ -1,0 +1,32 @@
+[
+  // assignment operator
+  {
+    "key": "alt+-",
+    "command": "type",
+    "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
+    "args": {"text": " <- "}
+  },
+  // base R pipe
+  {
+    "key": "ctrl+shift+m",
+    "command": "type",
+    "when": "editorLangId == r && editorTextFocus || editorLangId == rmd && editorTextFocus",
+    "args": {"text": " |> "}
+  },
+  {
+    "key": "ctrl+shift+m",
+    "command": "-workbench.actions.view.problems"
+  },
+  // open help panel for selection
+  {
+    "key": "f1",
+    "command": "r.helpPanel.openForSelection",
+    "when": "editorTextFocus && editorLangId == 'r' || editorTextFocus && editorLangId == 'rmd'"
+  },
+  // RStudio keybindings for R package development
+  {
+    "key": "ctrl+shift+l",
+    "command": "r.loadAll",
+    "when": "resourceLangId == 'r'"
+  }
+]

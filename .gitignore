@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+
+# container-specific files
+.devcontainer/.rstudio_config/*
+!.devcontainer/.rstudio_config/README.md
+.env
+inst/doc
+reference_materials/*
+!reference_materials/README.md

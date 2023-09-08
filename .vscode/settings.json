@@ -1,0 +1,5 @@
+{
+  "r.libPaths": [
+    "/workspaces/shiny-r-prod-lego/renv/library/R-4.3/x86_64-pc-linux-gnu"
+  ]
+}
