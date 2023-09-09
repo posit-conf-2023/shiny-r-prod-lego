@@ -9,3 +9,6 @@ $run_dev.*
 ^.here$
 ^\.devcontainer$
 ^\.vscode$
+^brickapp\.Rcheck$
+^brickapp.*\.tar\.gz$
+^brickapp.*\.tgz$

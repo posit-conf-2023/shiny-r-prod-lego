@@ -11,3 +11,6 @@
 inst/doc
 reference_materials/*
 !reference_materials/README.md
+brickapp.Rcheck/
+brickapp*.tar.gz
+brickapp*.tgz
