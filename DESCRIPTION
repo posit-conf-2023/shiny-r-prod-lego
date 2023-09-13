@@ -7,7 +7,7 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Imports: 
     bslib,
-    config (>= 0.3.2),
+    config (>= 0.3.1),
     dplyr,
     golem (>= 0.4.1),
     pkgload,
