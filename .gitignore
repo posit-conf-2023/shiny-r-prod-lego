@@ -3,6 +3,7 @@
 .RData
 .Ruserdata
 .Renviron
+rsconnect/
 
 # container-specific files
 .devcontainer/.rstudio_config/*

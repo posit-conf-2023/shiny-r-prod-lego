@@ -12,3 +12,8 @@ $run_dev.*
 ^brickapp\.Rcheck$
 ^brickapp.*\.tar\.gz$
 ^brickapp.*\.tgz$
+^app\.R$
+^rsconnect$
+^LICENSE\.md$
+^README\.Rmd$
+^CODE_OF_CONDUCT\.md$
