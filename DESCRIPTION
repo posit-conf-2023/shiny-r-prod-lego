@@ -9,9 +9,17 @@ Imports:
     bslib,
     config (>= 0.3.2),
     dplyr,
+    ggplot2,
+    glue,
     golem (>= 0.4.1),
-    pkgload,
+    histoslider,
+    httr2,
+    reactable,
+    reactablefmtr,
+    scales,
     shiny (>= 1.7.5),
+    shinyWidgets,
+    tibble,
     tidyr
 Encoding: UTF-8
 LazyData: true
