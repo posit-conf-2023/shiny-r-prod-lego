@@ -25,19 +25,19 @@ app_ui <- function(request) {
             title = "Theme",
             icon = icon("palette"),
             # TODO: Add UI for selecting theme
-            tags$b("Theme selection")
+            tags$b("REPLACE (Theme selection)")
           ),
           accordion_panel(
             title = "Year",
             icon = icon("calendar"),
             # TODO: Add UI for selecting year range
-            tags$b("Year selection")
+            tags$b("REPLACE (Year selection)")
           ),
           accordion_panel(
             title = "Parts Range",
             icon = icon("toolbox"),
             # TODO: Add UI for selecting parts range
-            tags$b("Parts range selection")
+            tags$b("REPLACE (Parts range selection)")
           )
         )
       ),
@@ -73,7 +73,7 @@ app_ui <- function(request) {
         title = "Details",
         layout_columns(
           # TODO: add UI for selecting a single set
-          tags$h3("REPLACE with set selector")
+          tags$h3("REPLACE (set selector)")
         ),
         # TODO: Add parts summary table
         tags$h3("REPLACE with summary table")
