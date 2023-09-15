@@ -8,6 +8,7 @@ clean_inventories <- function(inventories) {
   return(inventories)
 }
 
+#' @import dplyr
 gen_part_metaset <- function(min_set_parts = 1) {
   # derive unique inventory values for each of the inventory data sets
   inv_minifig_ids <- unique(inventory_minifigs$inventory_id)
@@ -113,6 +114,7 @@ gen_part_metaset <- function(min_set_parts = 1) {
   return(df_parts_final)
 }
 
+#' @import dplyr
 calc_part_totals <- function(df, exclude_spares = TRUE, order_by_parts = TRUE, set_ids = NULL) {
   if (!is.null(set_ids)) {
     df <- filter(df, set_num %in% set_ids)
