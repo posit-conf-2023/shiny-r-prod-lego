@@ -59,4 +59,5 @@ app_server <- function(input, output, session) {
   })
 
   # TODO: Call your value widgets module (server-side) code here
+  mod_value_widgets_server("value_widgets_1", sets_rv, part_meta_rv)
 }

@@ -43,7 +43,7 @@ app_ui <- function(request) {
         layout_columns(
           fill = FALSE,
           # TODO: Call your value widgets module (UI) function here
-          tags$h3("REPLACE with value widgets")
+          mod_value_widgets_ui("value_widgets_1")
         ),
         layout_columns(
           navset_card_pill(
