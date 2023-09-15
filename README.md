@@ -27,10 +27,11 @@ on [Posit Cloud](https://posit.cloud) in this
 After opening the project, perform the following steps to set up the R
 environment:
 
-1.  In the R console, the `{renv}` package will begin to bootstrap the
-    package library. When prompted to restore the project library, type
-    `y` in the console to proceed. Note that you will only have to
-    perform this step once during the workshop.
+1.  In the R console, the `{renv}` package will begin to bootstrap
+    itself into the package library. You will likely see a message
+    indicating one or more packages in the lockfile are not installed.
+    In the R console, run the following command to restore the complete
+    package library: `renv::restore(prompt = FALSE)` .
 2.  In the **Git** tab of the RStudio IDE panel, select the **TODO - Add
     Branch Name** branch to load the files associated with this
     particular exercise / demonstration
