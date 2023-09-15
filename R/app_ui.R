@@ -24,20 +24,17 @@ app_ui <- function(request) {
           accordion_panel(
             title = "Theme",
             icon = icon("palette"),
-            # TODO: Add UI for selecting theme
-            tags$b("REPLACE (Theme selection)")
+            mod_theme_picker_ui("theme_picker_1")
           ),
           accordion_panel(
             title = "Year",
             icon = icon("calendar"),
-            # TODO: Add UI for selecting year range
-            tags$b("REPLACE (Year selection)")
+            mod_year_picker_ui("year_picker_1")
           ),
           accordion_panel(
             title = "Parts Range",
             icon = icon("toolbox"),
-            # TODO: Add UI for selecting parts range
-            tags$b("REPLACE (Parts range selection)")
+            mod_numparts_picker_ui("numparts_picker_1")
           )
         )
       ),
@@ -45,7 +42,7 @@ app_ui <- function(request) {
         title = "Explore",
         layout_columns(
           fill = FALSE,
-          # TODO: Add value box widgets
+          # TODO: Call your value widgets module (UI) function here
           tags$h3("REPLACE with value widgets")
         ),
         layout_columns(
@@ -53,35 +50,18 @@ app_ui <- function(request) {
             full_screen = TRUE,
             nav_panel(
               "Sets",
-              # TODO: Add plot for number of sets by year
-              tags$h3("REPLACE with plot")
+              plotOutput("sets_plot")
+            ),
+            nav_panel(
+              "Colors",
+              plotOutput("colors_plot")
+            ),
+            nav_panel(
+              "Parts",
+              plotOutput("parts_plot")
             )
           )
-        ),
-        layout_columns(
-          card(
-            full_screen = TRUE,
-            card_header(
-              "Parts Summary"
-            ),
-            # TODO: Add parts summary table
-            tags$h3("REPLACE with summary table")
-          )
         )
-      ),
-      nav_panel(
-        title = "Details",
-        layout_columns(
-          # TODO: add UI for selecting a single set
-          tags$h3("REPLACE (set selector)")
-        ),
-        # TODO: Add parts summary table
-        tags$h3("REPLACE with summary table")
-      ),
-      nav_panel(
-        title = "Prediction",
-        # TODO: add UI for prediction of number of parts
-        tags$h3("REPLACE with prediction interface")
       )
     )
   )
