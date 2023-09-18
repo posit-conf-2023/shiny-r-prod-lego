@@ -103,4 +103,7 @@ app_server <- function(input, output, session) {
 
   # image for individual sets
   mod_set_viewer_server("set_viewer_1", set_url)
+
+  # execute prediction module server function
+  mod_prediction_server("prediction_1")
 }

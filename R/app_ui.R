@@ -84,6 +84,10 @@ app_ui <- function(request) {
           mod_set_viewer_ui("set_viewer_1")
         ),
         mod_part_table_ui("part_table_2")
+      ),
+      nav_panel(
+        title = "Prediction",
+        mod_prediction_ui("prediction_1")
       )
     )
   )
