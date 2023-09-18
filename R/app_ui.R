@@ -24,37 +24,37 @@ app_ui <- function(request) {
           accordion_panel(
             title = "Theme",
             icon = icon("palette"),
-            # TODO: Add UI for selecting theme
-            tags$b("REPLACE (Theme selection)")
+            mod_theme_picker_ui("theme_picker_1")
           ),
           accordion_panel(
             title = "Year",
             icon = icon("calendar"),
-            # TODO: Add UI for selecting year range
-            tags$b("REPLACE (Year selection)")
+            mod_year_picker_ui("year_picker_1")
           ),
           accordion_panel(
             title = "Parts Range",
             icon = icon("toolbox"),
-            # TODO: Add UI for selecting parts range
-            tags$b("REPLACE (Parts range selection)")
+            mod_numparts_picker_ui("numparts_picker_1")
           )
         )
       ),
       nav_panel(
         title = "Explore",
-        layout_columns(
-          fill = FALSE,
-          # TODO: Add value box widgets
-          tags$h3("REPLACE with value widgets")
-        ),
+        mod_value_widgets_ui("value_widgets_1"),
         layout_columns(
           navset_card_pill(
             full_screen = TRUE,
             nav_panel(
               "Sets",
-              # TODO: Add plot for number of sets by year
-              tags$h3("REPLACE with plot")
+              plotOutput("sets_plot")
+            ),
+            nav_panel(
+              "Colors",
+              plotOutput("colors_plot")
+            ),
+            nav_panel(
+              "Parts",
+              plotOutput("parts_plot")
             )
           )
         ),
@@ -62,26 +62,28 @@ app_ui <- function(request) {
           card(
             full_screen = TRUE,
             card_header(
-              "Parts Summary"
+              "Parts Summary",
+              shiny::radioButtons(
+                inputId = "n_parts_display",
+                label = NULL,
+                choices = c(10, 20, 50, 100, 200),
+                selected = 10,
+                inline = TRUE,
+                width = "fit-content"
+              ),
+              class = "d-flex justify-content-between"
             ),
-            # TODO: Add parts summary table
-            tags$h3("REPLACE with summary table")
+            mod_part_table_ui("part_table_1")
           )
         )
       ),
       nav_panel(
         title = "Details",
         layout_columns(
-          # TODO: add UI for selecting a single set
-          tags$h3("REPLACE (set selector)")
+          mod_set_picker_ui("set_picker_1"),
+          mod_set_viewer_ui("set_viewer_1")
         ),
-        # TODO: Add parts summary table
-        tags$h3("REPLACE with summary table")
-      ),
-      nav_panel(
-        title = "Prediction",
-        # TODO: add UI for prediction of number of parts
-        tags$h3("REPLACE with prediction interface")
+        mod_part_table_ui("part_table_2")
       )
     )
   )
@@ -105,7 +107,7 @@ golem_add_external_resources <- function() {
     favicon(),
     bundle_resources(
       path = app_sys("app/www"),
-      app_title = "legobricks.app"
+      app_title = "brickapp"
     ),
     # Add here other external resources
     # for example, you can add shinyalert::useShinyalert()
