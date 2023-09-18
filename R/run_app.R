@@ -14,6 +14,9 @@ run_app <- function(
   uiPattern = "/",
   ...
 ) {
+
+  part_meta_df <- arrow::read_parquet(app_sys("extdata", "part_meta_df.parquet"), as_data_frame = FALSE)
+
   with_golem_options(
     app = shinyApp(
       ui = app_ui,
@@ -23,6 +26,8 @@ run_app <- function(
       enableBookmarking = enableBookmarking,
       uiPattern = uiPattern
     ),
-    golem_opts = list(...)
+    golem_opts = list(
+      part_meta_df = part_meta_df
+    )
   )
 }

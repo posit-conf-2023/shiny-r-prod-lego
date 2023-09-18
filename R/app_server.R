@@ -6,6 +6,7 @@
 #' @noRd
 app_server <- function(input, output, session) {
   # Your application server logic
+  part_meta_df <- golem::get_golem_options("part_meta_df")
 
   # run filter modules
   input_theme_ids <- mod_theme_picker_server("theme_picker_1")
@@ -28,7 +29,6 @@ app_server <- function(input, output, session) {
 
   part_meta_rv <- reactive({
     req(sets_rv())
-    part_meta_df <- gen_part_metaset()
 
     df <- part_meta_df |>
       dplyr::filter(set_num %in% unique(sets_rv()$set_num))
@@ -42,7 +42,6 @@ app_server <- function(input, output, session) {
 
     # grab set IDs from the sets reactive data frame
     set_ids <- unique(sets_rv()$set_num)
-    part_meta_df <- gen_part_metaset()
     df_sum <- calc_part_totals(part_meta_df, set_ids = set_ids)
     
     return(df_sum)
@@ -67,7 +66,6 @@ app_server <- function(input, output, session) {
   # run parts table module for individual set
   df_summary_single_rv <- reactive({
     req(set_single())
-    part_meta_df <- gen_part_metaset()
     df_sum <- calc_part_totals(part_meta_df, set_ids = set_single())
     return(df_sum)
   })
