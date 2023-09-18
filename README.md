@@ -32,12 +32,9 @@ environment:
     indicating one or more packages in the lockfile are not installed.
     In the R console, run the following command to restore the complete
     package library: `renv::restore(prompt = FALSE)` .
-2.  In the **Git** tab of the RStudio IDE panel, select the **TODO - Add
-    Branch Name** branch to load the files associated with this
-    particular exercise / demonstration
-3.  Inspect the application source code and begin updating the
-    application code. You will find placeholders for adding code with
-    the comments `# TODO:`.
+2.  In the **Git** tab of the RStudio IDE panel, select the
+    **profiling-exercise1** branch to load the files associated with
+    this particular exercise / demonstration
 
 ## Code of Conduct
 
