@@ -2,6 +2,7 @@
 
 export(run_app)
 import(bslib)
+import(dplyr)
 import(shiny)
 importFrom(golem,activate_js)
 importFrom(golem,add_resource_path)
