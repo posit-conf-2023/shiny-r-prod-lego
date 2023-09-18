@@ -62,6 +62,13 @@ mod_prediction_server <- function(id){
     pred_status <- reactiveVal("No prediction submitted yet.")
     pred_poll <- reactiveVal(FALSE)
 
+    # establish async processing with crew
+    controller <- crew_controller_local(workers = 4, seconds_idle = 10)
+    controller$start()
+      
+    # make sure to terminate the controller on stop #NEW
+    onStop(function() controller$terminate())
+
     observeEvent(input$add, {
       # reset predicted values
       pred_data_rv$predicted_values <- NULL
@@ -89,9 +96,33 @@ mod_prediction_server <- function(id){
         type = "message"
       )
 
-      pred_df <- run_prediction(pred_data_rv$data)
-      pred_data_rv$data <- pred_df
-      removeNotification(id = "pred_message")
+      controller$push(
+        command = run_prediction(df),
+        data = list(
+          run_prediction = run_prediction,
+          df = pred_data_rv$data
+        ),
+        packages = c("httr2", "dplyr")
+      )
+
+      pred_poll(TRUE)
+    })
+
+    observe({
+      req(pred_poll())
+
+      invalidateLater(millis = 100)
+      result <- controller$pop()$result
+
+      if (!is.null(result)) {
+        pred_data_rv$data <- result[[1]]
+      }
+
+      if (isFALSE(controller$nonempty())) {
+        pred_status("Prediction Complete")
+        pred_poll(controller$nonempty())
+        removeNotification(id = "pred_message")
+      }
     })
 
     output$pred_table <- reactable::renderReactable({
